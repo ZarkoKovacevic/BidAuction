@@ -2,6 +2,7 @@
 
 namespace App\Tests;
 
+use App\Domain\Auction\WinningCalculationService;
 use App\Domain\Bid;
 use App\Domain\BidAuction;
 use App\Domain\Buyer;
@@ -35,9 +36,7 @@ class AuctionTest extends KernelTestCase
         $auction->addBuyer($buyerD);
         $auction->addBuyer($buyerE);
 
-        self::bootKernel();
-        $container = static::getContainer();
-        $service = $container->get('app.winning_calculation_service');
+        $service = new WinningCalculationService();
 
         [$winner, $winningPrice] = $service->winnerAlgorithm($auction);
 

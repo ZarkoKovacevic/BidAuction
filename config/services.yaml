@@ -22,8 +22,3 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-
-
-    app.winning_calculation_service:
-        class: App\Domain\Auction\WinningCalculationService
-        public: true
