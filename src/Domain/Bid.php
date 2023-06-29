@@ -6,12 +6,12 @@ class Bid
 {
     private int $amount;
 
-    public function __construct(int $amount)
+    public function __construct(float $amount)
     {
         $this->amount = $amount;
     }
 
-    public function getAmount(): int
+    public function getAmount(): float
     {
         return $this->amount;
     }

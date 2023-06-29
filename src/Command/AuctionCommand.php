@@ -32,8 +32,8 @@ class AuctionCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setDescription('Runs the second-price, sealed-bid auction.')
-            ->setHelp('This command runs the second-price, sealed-bid auction using predefined buyers and bids.');
+            ->setDescription('Bid auction demo command.')
+            ->setHelp('After command started you will be asked to enter necessary data.');
     }
 
     /**
@@ -47,16 +47,16 @@ class AuctionCommand extends Command
 
         $reservePrice = (float) $this->askQuestion('Enter the reserve price: ', $input, $output);
 
-        // Ask for the number of buyers
+        //Number of buyers
         $buyerCount = (int) $this->askQuestion('How many buyers do you want? ', $input, $output);
 
         $auction = new BidAuction($reservePrice);
 
-        // Ask for buyer names and bids
+        // Buyers names and bids
         for ($i = 1; $i <= $buyerCount; $i++) {
             $buyerName = $this->askQuestion("Name for buyer $i? > ", $input, $output);
-            $bidAnswer = $this->askQuestion("Enter bid(s) for $buyerName (separated by commas) > ", $input, $output);
-            $bids = explode(',', $bidAnswer);
+            $bidsInput = $this->askQuestion("Enter bid(s) for $buyerName (separated by commas) > ", $input, $output);
+            $bids = explode(',', $bidsInput);
 
             $buyer = new Buyer(rand(), $buyerName);
 

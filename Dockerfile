@@ -1,5 +1,5 @@
 # Use an official PHP runtime as the base image
-FROM php:8.2-cli
+FROM php:8.2-fpm
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -24,5 +24,5 @@ RUN composer install --no-interaction
 # Expose the port to access the CLI command
 EXPOSE 8000
 
-# Start the Symfony server with the interactive CLI command
-CMD ["php", "bin/console", "app:run-auction"]
+# Start PHP-FPM
+CMD ["php-fpm"]
