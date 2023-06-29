@@ -1,7 +1,7 @@
 # BidAuction
 
-##Setup
-###Need to run: docker-compose up --build
+Setup
+Need to run: docker-compose up --build
 
 ##Test
 In folder /tests there is one test with prepared data for bid Auction.
